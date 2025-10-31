@@ -70,6 +70,7 @@ public class CarService {
      */
     @Transactional
     public CarResponseDTO updateCar(Long id, CarRequestDTO updatedCarDTO) {
+        logger.info("Inside updateCar");
         Car existingCar = carRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Car not found with id " + id));
 
@@ -83,6 +84,7 @@ public class CarService {
      */
     @Transactional
     public void deleteCarById(Long id) {
+        logger.info("inside deleteCarById");
         if (!carRepository.existsById(id)) {
             throw new ResourceNotFoundException("Car not found with given id " + id);
         }
@@ -99,6 +101,7 @@ public class CarService {
                                            Double minMileage, Double maxMileage,
                                            Double minEngineCapacity, Double maxEngineCapacity,
                                            int page, int size) {
+        logger.info("Inside filterCars ");
 
         Pageable pageable = PageRequest.of(page, size);
 
@@ -149,6 +152,7 @@ public class CarService {
      * ✅ Reusable Lookup Fetcher
      */
     private LookUp getLookUpDtlsById(Long id, String type) {
+        logger.info("Inside getLookUpDtlsById");
         return lookUpRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(type + " not found with id " + id));
     }
@@ -157,6 +161,7 @@ public class CarService {
      * ✅ Utility: Map DTO to Entity (for create/update)
      */
     private Car mapRequestToEntity(Car car, CarRequestDTO dto) {
+        logger.info("Inside mapRequestToEntity");
 
         car.setModel(dto.getName());
         car.setYear(dto.getYear());
