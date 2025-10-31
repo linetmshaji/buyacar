@@ -2,9 +2,9 @@ spring:
   application:
     name: learn
   datasource:
-    url: jdbc:postgresql://localhost:5432/buymycar
+    url: jdbc:postgresql://buyacar.cx6iecm6icvj.ap-southeast-2.rds.amazonaws.com:5432/buymycar
     username: postgres
-    password: Root@023
+    password: buyacar023 #Root@023 local password
     driver-class-name: org.postgresql.Driver
 #      url: jdbc:mysql://buyacar.cx6iecm6icvj.ap-southeast-2.rds.amazonaws.com:3306/buymycar
 #      username: buyacar
