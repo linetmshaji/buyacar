@@ -70,7 +70,7 @@ public class CarService {
      */
     @Transactional
     public CarResponseDTO updateCar(Long id, CarRequestDTO updatedCarDTO) {
-        logger.info("Inside updateCar");
+        logger.info("Inside updateCar "+id);
         Car existingCar = carRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Car not found with id " + id));
 
